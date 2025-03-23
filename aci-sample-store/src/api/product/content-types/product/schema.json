@@ -1,0 +1,70 @@
+{
+    "kind": "collectionType",
+    "collectionName": "products",
+    "info": {
+      "singularName": "product",
+      "pluralName": "products",
+      "displayName": "Product",
+      "description": "Products for the e-commerce store"
+    },
+    "options": {
+      "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "slug": {
+          "type": "uid",
+          "targetField": "name",
+          "required": true
+      },
+      "brand": {
+        "type": "relation",
+        "relation": "manyToOne",
+        "target": "api::brand.brand"
+      },
+      "categories": {
+        "type": "relation",
+        "relation": "manyToMany",
+        "target": "api::category.category"
+      },
+      "main_image": {
+        "type": "media",
+        "allowedTypes": [
+          "images"
+        ],
+        "multiple": false,
+        "required": true
+      },
+      "other_images": {
+        "type": "media",
+        "allowedTypes": [
+          "images"
+        ],
+        "multiple": true
+      },
+      "description": {
+        "type": "richtext"
+      },
+      "price": {
+        "type": "decimal",
+        "required": true
+      },
+      "stock": {
+        "type": "integer",
+        "required": true
+      },
+      "meta_title":{
+          "type": "string"
+      },
+      "meta_description":{
+          "type": "text"
+      },
+      "keywords":{
+          "type": "string"
+      }
+    }
+  }
